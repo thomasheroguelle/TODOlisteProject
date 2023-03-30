@@ -1,1 +1,13 @@
 <p>Hello World ! </p>
+<button (click)="getTask()"> test </button>
+
+<form (submit)="getTask()">
+<ul>
+    <li *ngFor="let task of tasks">
+        {{ task.content }}
+        {{ task.category }}
+        {{ task.id }}
+    </li>
+  </ul>
+
+</form>
