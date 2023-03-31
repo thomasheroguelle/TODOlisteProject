@@ -11,7 +11,7 @@ export class TaskService {
   task: ITodo = {
     id: 1,
     content: "test",
-    category: "",
+    category: "test",
     isUrgent: false,
     doneDate: null,
   }
