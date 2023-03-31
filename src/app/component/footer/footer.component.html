@@ -1,0 +1,13 @@
+<footer>
+    <hr>
+    <div class="flexbox">
+        <button [ngClass]="{'green-button' : isOnHomePage, 'neutral-button' : !isOnHomePage}"
+        class="blue">
+        <i class="fa-solid fa-list"></i>
+    </button>
+
+    <button [ngClass]="{'yellow-button' : isOnCreateTask, 'neutral-button' : !isOnCreateTask}">
+        +
+    </button>
+    </div>
+</footer>
