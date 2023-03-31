@@ -7,17 +7,20 @@ import { TaskService } from './services/task.service';
 import { FooterComponent } from './component/footer/footer.component';
 import { CreateTaskComponent } from './component/create-task/create-task.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+ 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     FooterComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]

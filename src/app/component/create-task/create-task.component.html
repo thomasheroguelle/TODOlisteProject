@@ -1,6 +1,13 @@
-<p>Hello World ! (createTask)</p>
+<p class="title-category"> Quelle tâche avez vous a effectuer ? </p>
+
+<form class="form-body" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <!-- form est associé à un nom de référence (#form="ngForm") qui permet de référencer le formulaire  -->
+    <textArea ngModel ngDefaultControl name="userInput" rows="5" cols="60" required>
+    </textArea>
+    <br>
+    <button>Ajouter</button>
+</form>
 
 
-    <button (click)="addTasktoLocalStorage()">Ajouter une tâche</button>
+<p>First name value: {{ task.content}}</p>
 
-  

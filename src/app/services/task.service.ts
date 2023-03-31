@@ -8,14 +8,6 @@ export class TaskService {
 
   private static readonly TASKS_KEY = 'tasks'
 
-  task: ITodo = {
-    id: 1,
-    content: "test",
-    category: "test",
-    isUrgent: false,
-    doneDate: null,
-  }
-  
   // nous retourne les taches 
   getTasks(): ITodo[] {
     // je recupere les données grace a la clé task
@@ -32,7 +24,8 @@ export class TaskService {
   // création du LocalStorage 
   createTask(task: ITodo) {
     // je recupere les données 
-    const tasksFromLocalStorage = this.getTasks();
+    const tasksFromLocalStorage: ITodo[] = this.getTasks();
+    task.id = tasksFromLocalStorage.length;
     // j'ajoute ma nouvelle donnée vers le LS
     tasksFromLocalStorage.push(task);
     // j'enregistre les tâches mises à jour dans le localStorage
