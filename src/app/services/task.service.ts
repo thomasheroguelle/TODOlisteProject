@@ -8,6 +8,9 @@ export class TaskService {
 
   private static readonly TASKS_KEY = 'tasks'
 
+  // j'initialise ma variable a une string vide 
+  taskResponse: string = "";
+
   // nous retourne les taches 
   getTasks(): ITodo[] {
     // je recupere les données grace a la clé task
@@ -31,6 +34,9 @@ export class TaskService {
     // j'enregistre les tâches mises à jour dans le localStorage
     const tasksInStringify = JSON.stringify(tasksFromLocalStorage);
     localStorage.setItem(TaskService.TASKS_KEY, tasksInStringify);
+  }
+  setTaskResponse(userResponse: string) {
+    this.taskResponse = userResponse;
   }
 }
 

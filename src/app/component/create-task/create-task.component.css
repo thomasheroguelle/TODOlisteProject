@@ -1,16 +1,3 @@
-button {
-    background-color: #64A7D9;
-    color: white;
-    border-radius: 15px;
-    padding: 10px;
-    width: 248px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    display: block;
-    margin: auto;
-}
-
 /* marge pour la div qui contient un paragraphe+textarea+boutton  */
 textarea {
     width: 338px;
@@ -89,3 +76,4 @@ span {
 .checkbox input[type="checkbox"]:checked+.checkmark {
     background-color: #E475F1;
 }
+

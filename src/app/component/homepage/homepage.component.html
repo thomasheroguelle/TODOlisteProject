@@ -1,4 +1,26 @@
-<p>Hello World ! (HomePage) </p>
+<main>   
+<div *ngIf="taskResponse.length === 0"
+ class="containerNgIf">   
+    <h1 >
+        Aucune tache pour le moment 🙌  
+    </h1>
+    <button routerLink="/createTask">
+        Créer une tâche
+    </button>
+</div>
 
-<a routerLink="/createTask"><button class="btn">createTask</button></a>
+
+    <div *ngIf="taskResponse.length !== 0" class="checkboxContainer">   
+        <label class="checkbox">
+            <input type="checkbox" name="urgent" value="urgent">
+            <span class="checkmark"> </span>
+            {{ taskResponse }}
+        </label> 
+</div>
+</main>
+
+
+<!-- sixthStep
+affichage des taches dans la HomePage : creation d'une variable vide , création d'une méthode dans le service pour permettre aux composants de communiquer entre eux 
+ -->
 
