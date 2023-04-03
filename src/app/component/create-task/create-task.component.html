@@ -1,13 +1,45 @@
-<p class="title-category"> Quelle tâche avez vous a effectuer ? </p>
+<main>
+    <div class="styleCSS">
+        <p class="title-category"> Quelle tâche avez vous a effectuer ? </p>
+        <br>
 
-<form class="form-body" #form="ngForm" (ngSubmit)="onSubmit(form)">
-    <!-- form est associé à un nom de référence (#form="ngForm") qui permet de référencer le formulaire  -->
-    <textArea ngModel ngDefaultControl name="userInput" rows="5" cols="60" required>
-    </textArea>
-    <br>
-    <button>Ajouter</button>
-</form>
+        <!-- <form class="form-body" #form="ngForm" (ngSubmit)="onSubmit(form)"> -->
+        <form class="form-body" #form="ngForm" (ngSubmit)="createTask()">
+            <!-- form est associé à un nom de référence (#form="ngForm") qui permet de référencer le formulaire  -->
+            <textArea [(ngModel)]="task.content" #name="ngModel" required placeholder="Exemple : Faire les courses"
+                name="content" class="form-control" ngDefaultControl>
+
+            </textArea>
 
 
-<p>First name value: {{ task.content}}</p>
+            <!-- HTML statique "la tache est urgente" -->
+            <!-- <div class="labelDiv">   
+            <label class="checkbox">
+            <input type="checkbox" name="urgent" value="urgent">
+            <span class="checkmark"> </span>
+            La tache est urgente ⚠️
+        </label> 
+    </div>
+    -->
+            <button class="flex"> Ajouter</button>
 
+
+
+
+        </form>
+
+    </div>
+
+</main>
+
+<!-- 
+    firth branch second push
+    creation d'un formulaire ngForm et d'un textarea ngModel
+    l'utilisateur peut entrer une tache , la valider et la voir apparaitre dans le local storage 
+    l'interface ITodo est en brut 
+    creation header 
+    css pour selectedTask
+    footer en bas de page ok 
+
+
+-->

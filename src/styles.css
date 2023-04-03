@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+  
+* {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-height: 100vh;
+    background-color: #040722;
+}
+
+main {
+    flex: 1;
+    overflow: scroll;
+    border: 2px solid green;
+}
+
+
+/* Balises  */
+h1 {
+    color: white;
+    font-size: 20px;
+}
+/* component create task */
+.title-category {
+    color: white;
+    font-weight: 700;
+
+}

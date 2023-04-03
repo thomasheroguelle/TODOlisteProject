@@ -18,3 +18,17 @@ button {
 .green-button {
     background-color: #88E7A1;
 }
+.flexbox {
+    height: 100px;
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  

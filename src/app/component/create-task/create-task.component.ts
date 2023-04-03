@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, NgForm, FormsModule } from '@angular/forms';
 import { TaskService } from 'src/app/services/task.service';
 import { ITodo } from 'src/ITodo/ITodo';
 
@@ -11,29 +11,24 @@ import { ITodo } from 'src/ITodo/ITodo';
 })
 export class CreateTaskComponent {
 
+  task : ITodo = {
+    id : 0,
+    content : "",
+    category : "bills",
+    isUrgent : false,
+    doneDate : null
+  }
   // j'injecte mon service dans le constructeur 
   constructor(private taskService: TaskService) {}
 
   // appelle la méthode createTask() du service TaskService pour ajouter la tâche au local storage.
-  createTask(task: ITodo) {
-    this.taskService.createTask(task);
+  createTask() {
+    this.taskService.createTask(this.task);
+
   }
 
-  // onSubmit(form: NgForm) {
-  //   console.log(form.value);
-  //   this.createTask(form.value);
-  // }
-  onSubmit(form: NgForm) {
-    console.log(form.value);
-    this.createTask(this.task);
-  }
 
-  task : ITodo = {
-    id : 1,
-    content : 'test',
-    category : 'bills',
-    isUrgent : false,
-    doneDate : null
-  }
+
+ 
 
 }

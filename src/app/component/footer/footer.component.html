@@ -2,12 +2,13 @@
     <hr>
     <div class="flexbox">
         <button routerLink="/" [ngClass]="{'green-button' : isOnHomePage, 'neutral-button' : !isOnHomePage}"
-        class="blue">
-        <i class="fa-solid fa-list"></i>
-    </button>
+            class="blue">
+            <i class="fa-solid fa-list"></i>
+        </button>
 
-    <button routerLink="/createTask" [ngClass]="{'yellow-button' : isOnCreateTask, 'neutral-button' : !isOnCreateTask}">
-        +
-    </button>
+        <button routerLink="/createTask"
+            [ngClass]="{'yellow-button' : isOnCreateTask, 'neutral-button' : !isOnCreateTask}">
+            +
+        </button>
     </div>
 </footer>

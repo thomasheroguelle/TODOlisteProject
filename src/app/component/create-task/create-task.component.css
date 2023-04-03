@@ -7,4 +7,85 @@ button {
     font-size: 16px;
     cursor: pointer;
     border: none;
+    display: block;
+    margin: auto;
+}
+
+/* marge pour la div qui contient un paragraphe+textarea+boutton  */
+textarea {
+    width: 338px;
+    height: 182px;
+    background-color: #1D2038;
+    color: white;
+    margin-bottom: 31px;
+}
+
+::placeholder {
+    color: white;
+    opacity: 30%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.labelDiv {
+    justify-content: space-between;
+
+}
+
+span {
+    color: white;
+}
+
+/* CHECKBOX  */
+.checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.checkbox .checkmark {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0 10px;
+}
+
+.checkbox .checkmark:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.checkbox input[type="checkbox"]:checked+.checkmark:before {
+    opacity: 1;
+    background-image: url("/assets/check-24.png");
+    background-size: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.checkbox input[type="checkbox"]:checked+.checkmark {
+    background-color: #E475F1;
 }
