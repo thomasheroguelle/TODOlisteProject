@@ -9,7 +9,6 @@ export class TaskService {
   private static readonly TASKS_KEY = 'tasks'
 
   // j'initialise ma variable a une string vide 
-  taskResponse: string = "";
 
   // nous retourne les taches 
   getTasks(): ITodo[] {
@@ -35,8 +34,7 @@ export class TaskService {
     const tasksInStringify = JSON.stringify(tasksFromLocalStorage);
     localStorage.setItem(TaskService.TASKS_KEY, tasksInStringify);
   }
-  setTaskResponse(userResponse: string) {
-    this.taskResponse = userResponse;
-  }
+  
+ 
 }
 

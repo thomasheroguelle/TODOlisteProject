@@ -1,26 +1,31 @@
-<main>   
-<div *ngIf="taskResponse.length === 0"
- class="containerNgIf">   
-    <h1 >
-        Aucune tache pour le moment 🙌  
-    </h1>
-    <button routerLink="/createTask">
-        Créer une tâche
-    </button>
-</div>
+<main>
+    <ng-container *ngIf="todoTasks.length > 0; else noTask" class="containerNgIf">
+
+        <ul>
+            <li *ngFor="let task of todoTasks">
+                <input type="checkbox" name="task-{{task.id}}" id="task-{{task.id}}">
+                <label for="task-{{task.id}}">
+                    {{ task.content }}
+                </label>
+            </li>
+        </ul>
+
+    </ng-container>
+    <ng-template #noTask>
+        <h1>
+            Aucune tache pour le moment 🙌
+        </h1>
+        <button routerLink="/createTask">
+            Créer une tâche
+        </button>
 
 
-    <div *ngIf="taskResponse.length !== 0" class="checkboxContainer">   
-        <label class="checkbox">
-            <input type="checkbox" name="urgent" value="urgent">
-            <span class="checkmark"> </span>
-            {{ taskResponse }}
-        </label> 
-</div>
+    </ng-template>
+
+
+
 </main>
 
-
-<!-- sixthStep
-affichage des taches dans la HomePage : creation d'une variable vide , création d'une méthode dans le service pour permettre aux composants de communiquer entre eux 
+<!-- 
+ 
  -->
-

@@ -12,8 +12,6 @@ import { Router } from '@angular/router';
 })
 export class CreateTaskComponent {
 
-
-
   task: ITodo = {
     id: 0,
     content: "",
@@ -28,9 +26,6 @@ export class CreateTaskComponent {
   createTask() {
     this.taskService.createTask(this.task);
     this.route.navigate(['/']);
-    // je creer une variable pour afficher la reponse de l'utilisateur et qui est liée task.content
-    const userResponse = this.task.content;
-    // j'initialise la méthode de mon service que j'ai crée 
-    this.taskService.setTaskResponse(userResponse);
+  
   }
 }

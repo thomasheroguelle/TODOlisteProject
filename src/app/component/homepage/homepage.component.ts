@@ -9,12 +9,21 @@ import { ITodo } from 'src/ITodo/ITodo';
 })
 export class HomepageComponent {
 
-  constructor(private taskService: TaskService) {
-    this.taskResponse = taskService.taskResponse;
-  }
-  taskResponse: string;
-
- 
-
+  todoTasks : ITodo[] = [
+    {
+      id: 0,
+      content: "task1",
+      category: "bills",
+      isUrgent: false,
+      doneDate: null
+    },
+    {
+      id: 1,
+      content: "task2",
+      category: "bills",
+      isUrgent: false,
+      doneDate: null
+    },
+  ]
 }
 
