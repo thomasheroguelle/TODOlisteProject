@@ -9,21 +9,11 @@ import { ITodo } from 'src/ITodo/ITodo';
 })
 export class HomepageComponent {
 
-  todoTasks : ITodo[] = [
-    {
-      id: 0,
-      content: "task1",
-      category: "bills",
-      isUrgent: false,
-      doneDate: null
-    },
-    {
-      id: 1,
-      content: "task2",
-      category: "bills",
-      isUrgent: false,
-      doneDate: null
-    },
-  ]
+  // j'initialise la variable todoTasks a un tableau vide
+  todoTasks : ITodo[] = [];
+
+  constructor(private taskService : TaskService){
+    this.todoTasks = this.taskService.findTodoTasks();
+  } 
 }
 

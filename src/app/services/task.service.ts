@@ -1,5 +1,7 @@
+import { NgIf } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { ITodo } from 'src/ITodo/ITodo';
+import { HomepageComponent } from '../component/homepage/homepage.component';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +10,8 @@ export class TaskService {
 
   private static readonly TASKS_KEY = 'tasks'
 
-  // j'initialise ma variable a une string vide 
-
   // nous retourne les taches 
-  getTasks(): ITodo[] {
+  findTasks(): ITodo[] {
     // je recupere les données grace a la clé task
     const tasksFromLocalStorage = localStorage.getItem(TaskService.TASKS_KEY);
     // Si des tâches sont stockées dans le Local Storage, on les ajoute au tableau task
@@ -23,10 +23,11 @@ export class TaskService {
       return [];
     }
   }
+
   // création du LocalStorage 
   createTask(task: ITodo) {
     // je recupere les données 
-    const tasksFromLocalStorage: ITodo[] = this.getTasks();
+    const tasksFromLocalStorage: ITodo[] = this.findTasks();
     task.id = tasksFromLocalStorage.length;
     // j'ajoute ma nouvelle donnée vers le LS
     tasksFromLocalStorage.push(task);
@@ -34,7 +35,17 @@ export class TaskService {
     const tasksInStringify = JSON.stringify(tasksFromLocalStorage);
     localStorage.setItem(TaskService.TASKS_KEY, tasksInStringify);
   }
-  
- 
+
+  findTodoTasks(): ITodo[] {
+    // je recupere les données grace a la clé task
+    const tasksFromLocalStorage = this.findTasks();
+    // je filtre les tâches non réalisées en fonction de la date
+    const nonRealisedTasks = tasksFromLocalStorage.filter(task => task.doneDate === null);
+    console.log(nonRealisedTasks);
+    return nonRealisedTasks;
+  }
 }
+
+// 
+
 

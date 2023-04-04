@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-task.component.css']
 })
 export class CreateTaskComponent {
-
+  
   task: ITodo = {
     id: 0,
     content: "",
@@ -26,6 +26,5 @@ export class CreateTaskComponent {
   createTask() {
     this.taskService.createTask(this.task);
     this.route.navigate(['/']);
-  
   }
 }
