@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, NgForm, FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 import { ITodo } from 'src/ITodo/ITodo';
 import { Router } from '@angular/router';
@@ -11,13 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-task.component.css']
 })
 export class CreateTaskComponent {
-  
+
   task: ITodo = {
     id: 0,
     content: "",
     category: "bills",
     isUrgent: false,
-    doneDate: null
+    doneDate: null,
   }
   // j'injecte mon service dans le constructeur 
   constructor(private taskService: TaskService, private route: Router) { }
@@ -26,5 +25,6 @@ export class CreateTaskComponent {
   createTask() {
     this.taskService.createTask(this.task);
     this.route.navigate(['/']);
+
   }
 }
