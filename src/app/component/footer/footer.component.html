@@ -10,5 +10,10 @@
             [ngClass]="{'yellow-button' : isOnCreateTask, 'neutral-button' : !isOnCreateTask}">
             +
         </button>
+
+        <button routerLink="/historique"
+            [ngClass]="{'pink-button' : isOnHistoriquePage, 'neutral-button' : !isOnHistoriquePage}">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+        </button>
     </div>
 </footer>

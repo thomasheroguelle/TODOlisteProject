@@ -1,0 +1,22 @@
+<p class="title-category">Historique des tâches : </p>
+
+<br> 
+<ul>
+    <li *ngFor="let historique of task">
+        <input type="checkbox" class="checkboxStyle">
+        <label for=""></label>
+
+        {{historique.content}}
+
+    </li>
+
+</ul>
+
+
+<!-- 
+ 
+
+    note:
+    historique : si je clique sur le bouton la tache est invalidée et se retrouve dans la home 
+
+ -->

@@ -9,26 +9,33 @@ button {
     border: none;
     color: white;
 }
+
 .yellow-button {
     background-color: #F3D24F;
 }
-.neutral-button  {
+
+.neutral-button {
     background-color: #1D2038;
 }
+
+.pink-button {
+    background-color: #E475F1;
+}
+
 .green-button {
     background-color: #88E7A1;
 }
+
 .flexbox {
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 25px;
 }
+
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-
-  }
-  
-  
+}

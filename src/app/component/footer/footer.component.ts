@@ -11,6 +11,7 @@ export class FooterComponent {
 
   isOnHomePage : boolean = false;
   isOnCreateTask : boolean = false;
+  isOnHistoriquePage : boolean = false;
 
   ngOnInit() {
     this.setPageStatus();
@@ -22,6 +23,7 @@ export class FooterComponent {
     // la variable currentUrl stocke l'URL pour vérifier si l'URL correspond a la page d'accueil ou a la page de creation de taches. 
     this.isOnHomePage = currentUrl === "/";
     this.isOnCreateTask = currentUrl === "/createTask";
+    this.isOnHistoriquePage = currentUrl === "/historique";
     // les résultats de ces vérifications sont stockées dans les deux variables
     this.router.events.subscribe(event => {
       // la fonction s'abonne a des evennements de navigation et appelle 'setPageStatus()' lorsqu'un evenement de fin de navigation est détectée pour mettre a jour le statut de la page en temps réel

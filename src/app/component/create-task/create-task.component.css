@@ -18,14 +18,10 @@ main {
     align-items: center;
 }
 
-.labelDiv {
-    justify-content: space-between;
-
-}
-
 span {
     color: white;
 }
+
 
 /* CHECKBOX  */
 .checkbox input[type="checkbox"] {

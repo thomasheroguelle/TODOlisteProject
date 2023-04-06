@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ITodo } from 'src/ITodo/ITodo';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +36,7 @@ export class TaskService {
 
   findTodoTasks(): ITodo[] {
     // je recupere les données grace a la clé task
-    const taskList : ITodo[] = this.findTasks();
+    const taskList: ITodo[] = this.findTasks();
     // je filtre les tâches null
     const nonRealisedTasks = taskList.filter(task => task.doneDate === null);
     // console.log(nonRealisedTasks);
@@ -55,11 +56,28 @@ export class TaskService {
     }
   }
 
-  saveTasksToLocalStorage(tasks : ITodo[]) {
+  saveTasksToLocalStorage(tasks: ITodo[]) {
     // je transforme taskList en chaine de caractere comme dans la methode ci dessus 
     const tasksInStringify = JSON.stringify(tasks);
     // je sauvegarde cette chaine de caractere grace a la clé
     localStorage.setItem(TaskService.TASKS_KEY, tasksInStringify);
+  }
+
+  getDoneTasks(): ITodo[] {
+    // je recupere les taches stockées dans le LS
+    const tasksFromLocalStorage = localStorage.getItem(TaskService.TASKS_KEY);
+    if (tasksFromLocalStorage) {
+      // analyse et renvoie le tableau d'objet ITodo
+      const tasks: ITodo[] = JSON.parse(tasksFromLocalStorage);
+      // filtre les données qui sont complétées
+      const completedTasks : ITodo[] = tasks.filter(task => task.doneDate !== null);
+      // renvoie les taches complétées 
+      return completedTasks;
+    }
+    else {
+      console.log("erreur");
+      return [];
+    }
   }
 }
 
