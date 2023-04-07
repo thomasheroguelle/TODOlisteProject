@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ITodo } from 'src/ITodo/ITodo';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -35,12 +34,39 @@ export class TaskService {
   }
 
   findTodoTasks(): ITodo[] {
-    // je recupere les données grace a la clé task
+    // je recupere les données 
     const taskList: ITodo[] = this.findTasks();
     // je filtre les tâches null
     const nonRealisedTasks = taskList.filter(task => task.doneDate === null);
-    // console.log(nonRealisedTasks);
     return nonRealisedTasks;
+  }
+
+  findDoneTasks(): ITodo[] {
+    // je recupere les données grace a la clé task
+    const taskList: ITodo[] = this.findTasks();
+    // je filtre les tâches NON null
+    const realisedTasks = taskList.filter(task => task.doneDate !== null);
+    // tri
+    const sortedTasks = realisedTasks.sort(function compare(a, b) {
+      // fonctions de comparaison : retourne un int qui vaut 0 si les objets sont égaux, 
+      // une valeur négative si le deuxième objet (b) est > (a) 
+      // positif si a > b
+      if (a.doneDate === null) {
+        return 1;
+      }
+      if (b.doneDate === null) {
+        return -1;
+      }
+      if (a.doneDate < b.doneDate) {
+        return -1
+      }
+      if (a.doneDate > b.doneDate) {
+        return 1;
+      }
+      return 0
+    });
+    return sortedTasks
+
   }
 
   setTaskDone(taskId: number) {
@@ -56,6 +82,15 @@ export class TaskService {
     }
   }
 
+  setTaskUndone(taskId: number) {
+    const taskList: ITodo[] = this.findTasks();
+    const index = taskList.findIndex(item => item.id === taskId);
+    if (index !== -1 && taskList[index].doneDate !== null) {
+      taskList[index].doneDate = null;
+      this.saveTasksToLocalStorage(taskList);
+    }
+  }
+
   saveTasksToLocalStorage(tasks: ITodo[]) {
     // je transforme taskList en chaine de caractere comme dans la methode ci dessus 
     const tasksInStringify = JSON.stringify(tasks);
@@ -63,22 +98,11 @@ export class TaskService {
     localStorage.setItem(TaskService.TASKS_KEY, tasksInStringify);
   }
 
-  getDoneTasks(): ITodo[] {
-    // je recupere les taches stockées dans le LS
-    const tasksFromLocalStorage = localStorage.getItem(TaskService.TASKS_KEY);
-    if (tasksFromLocalStorage) {
-      // analyse et renvoie le tableau d'objet ITodo
-      const tasks: ITodo[] = JSON.parse(tasksFromLocalStorage);
-      // filtre les données qui sont complétées
-      const completedTasks : ITodo[] = tasks.filter(task => task.doneDate !== null);
-      // renvoie les taches complétées 
-      return completedTasks;
-    }
-    else {
-      console.log("erreur");
-      return [];
-    }
-  }
+  // findUrgentTasks(): ITodo[] {
+  //   const taskList: ITodo[] = this.findTasks();
+  //   return taskList.filter(task => task.isUrgent);
+  // }
+
 }
 
 

@@ -25,6 +25,7 @@ export class CreateTaskComponent {
   createTask() {
     this.taskService.createTask(this.task);
     this.route.navigate(['/']);
-
   }
+
+
 }

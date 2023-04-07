@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, NavigationEnd} from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,11 +7,11 @@ import { Router, NavigationEnd} from '@angular/router';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  constructor(private router : Router){}
+  constructor(private router: Router) { }
 
-  isOnHomePage : boolean = false;
-  isOnCreateTask : boolean = false;
-  isOnHistoriquePage : boolean = false;
+  isOnHomePage: boolean = false;
+  isOnCreateTask: boolean = false;
+  isOnHistoriquePage: boolean = false;
 
   ngOnInit() {
     this.setPageStatus();
@@ -28,7 +28,7 @@ export class FooterComponent {
     this.router.events.subscribe(event => {
       // la fonction s'abonne a des evennements de navigation et appelle 'setPageStatus()' lorsqu'un evenement de fin de navigation est détectée pour mettre a jour le statut de la page en temps réel
       // en gros, la methode subscribe est utilisée pour écouter les evenements de navigation emis par l'objet router. Lorsqu'un evenement de fin de navigation est détecté ('navigationEnd'), la fonction est appelé pour mettre a jour le statut de la page. subscribe permet de suivre en temps réel les changements d'état d'un objet observé, et de prendre des actions en réponse à ces changements. 
-      if(event instanceof NavigationEnd) {
+      if (event instanceof NavigationEnd) {
         this.setPageStatus();
       }
     })

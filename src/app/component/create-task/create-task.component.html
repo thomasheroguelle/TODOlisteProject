@@ -3,33 +3,21 @@
         <p class="title-category"> Quelle tâche avez vous a effectuer ? </p>
         <br>
 
-        <!-- <form class="form-body" #form="ngForm" (ngSubmit)="onSubmit(form)"> -->
         <form class="form-body" #form="ngForm" (ngSubmit)="createTask()">
             <!-- form est associé à un nom de référence (#form="ngForm") qui permet de référencer le formulaire  -->
             <textarea [(ngModel)]="task.content" required placeholder="Exemple : Faire les courses" name="content"
                 class="form-control" ngDefaultControl>
             </textarea>
+            <div class="labelDiv">
+
+                <label class="checkbox">
+                    <input [(ngModel)]="task.isUrgent" type="checkbox" name="urgent" value="urgent">
+                    <span class="checkmark"> </span>
+                    La tache est urgente ⚠️
+                </label>
+            </div>
+
             <button class="flex"> Valider ma tâche</button>
         </form>
-
-
-
     </div>
-
-    <!-- HTML statique "la tache est urgente" -->
-    <!-- <div class="labelDiv">   
-            <label class="checkbox">
-            <input type="checkbox" name="urgent" value="urgent">
-            <span class="checkmark"> </span>
-            La tache est urgente ⚠️
-        </label> 
-    </div>
-    -->
-
-
-
-
-
-
-
 </main>

@@ -9,11 +9,21 @@ import { ITodo } from 'src/ITodo/ITodo';
 })
 export class HistoriqueComponent {
 
-  task: ITodo[] = [];
+  tasks: ITodo[] = [];
 
-  constructor(private taskService: TaskService) { }
-
-  ngOnInit() {
-    this.task = this.taskService.getDoneTasks();
+  constructor(private taskService: TaskService) { 
+    this.tasks = this.taskService.findDoneTasks()
   }
+
+
+  setTaskUndone(task : ITodo) {
+    // J'initialise la methode de mon service
+    this.taskService.setTaskUndone(task.id);
+    // je recupere l'index de ma variable 
+    const index = this.tasks.indexOf(task);
+    // Supprime la tâche en fonction de son index 
+    this.tasks.splice(index, 1);
+  }
+
+
 }

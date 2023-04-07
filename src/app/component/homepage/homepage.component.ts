@@ -13,19 +13,31 @@ import { DatePipe } from '@angular/common';
 export class HomepageComponent {
 
   // j'initialise la variable todoTasks a un tableau vide
-  todoTasks: ITodo[] = [];
+  urgentTasks: ITodo[] = [];
+  nonUrgentTasks: ITodo[] = [];
 
   constructor(private taskService: TaskService) {
-    this.todoTasks = this.taskService.findTodoTasks();
+    const todoTasks = this.taskService.findTodoTasks();
+    this.urgentTasks = todoTasks.filter(task => task.isUrgent);
+    this.nonUrgentTasks = todoTasks.filter(task => !task.isUrgent)
+
   }
 
   onTaskChecked(task: ITodo) {
     // J'initialise la methode de mon service
     this.taskService.setTaskDone(task.id);
+    const todoTasks = task.isUrgent ? this.urgentTasks : this.nonUrgentTasks;
     // je recupere l'index de ma variable 
-    const index = this.todoTasks.indexOf(task);
+    const index = todoTasks.indexOf(task);
     // Supprime la tâche en fonction de son index 
-    this.todoTasks.splice(index, 1);
+    todoTasks.splice(index, 1);
   }
+
 }
+
+
+
+
+
+
 
