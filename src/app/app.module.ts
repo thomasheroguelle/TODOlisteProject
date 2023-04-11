@@ -7,10 +7,14 @@ import { TaskService } from './services/task.service';
 import { FooterComponent } from './component/footer/footer.component';
 import { CreateTaskComponent } from './component/create-task/create-task.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './component/header/header.component';
 import { HistoriqueComponent } from './component/historique/historique.component';
- 
+
+import { NgScrollbarModule } from 'ngx-scrollbar';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +28,8 @@ import { HistoriqueComponent } from './component/historique/historique.component
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    NgScrollbarModule
+
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]

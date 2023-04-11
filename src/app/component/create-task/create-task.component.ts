@@ -33,38 +33,29 @@ export class CreateTaskComponent {
 
   imgContent: IEmoticones[] = [
     {
-      content : "shopping",
+      content: "shopping",
       img: "🛍️",
     },
     {
-      content : "health",
+      content: "health",
       img: "💊",
     },
     {
-      content : "work",
+      content: "work",
       img: "💼",
     },
     {
-      content : "bills",
+      content: "bills",
       img: "💸",
     },
     {
-      content : "cleaning",
+      content: "cleaning",
       img: "🧼",
     },
     {
-      content : "other",
+      content: "other",
       img: "🤷",
     },
   ]
-
-  getEmoticon(category: string): string {
-    const emoticone = this.imgContent.find((item) => item.content === category);
-    return emoticone ? emoticone.img : '';
-  }
-  
-
-
-
-
 }
+
