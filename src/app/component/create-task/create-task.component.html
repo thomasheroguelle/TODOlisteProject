@@ -1,5 +1,22 @@
 <main>
     <div class="styleCSS">
+
+        <ul class="category">
+            <li *ngFor="let emoticones of imgContent">
+                <label [ngClass]="{'selected': emoticones.img === selectedEmoticon}">
+                     <!-- = si l'émoticones.img est séléctionné alors .selected s'applique -->
+                    <input type="radio" 
+                    name="category"
+                     [(ngModel)]="selectedEmoticon"
+                      [value]="emoticones.img">
+                      <span class="emoticon">{{emoticones.img}}</span>
+                    </label>
+            </li>
+        </ul>
+
+
+
+
         <p class="title-category"> Quelle tâche avez vous a effectuer ? </p>
         <br>
 
@@ -17,7 +34,7 @@
                 </label>
             </div>
 
-            <button class="flex"> Valider ma tâche</button>
+            <button class="flex" [ngClass]="{'disabled-btn': !task.content}" [disabled]="!task.content"> Valider ma tâche</button>
         </form>
     </div>
 </main>

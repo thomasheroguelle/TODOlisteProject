@@ -73,6 +73,41 @@ span {
     background-color: #E475F1;
 }
 
+/* BOUTON  */
 .flex {
-    margin-top: 100%;
+    margin-top: 50%;
+}
+.disabled-btn {
+    pointer-events: none;
+    opacity: 50%;
+  }
+  
+
+/* category  */
+.category {
+    display: flex;
+}
+
+li {
+    margin: 10px;
+}
+
+/* EMOTICONES  */
+/* Style général des émoticônes */
+input {
+    display: none;
+}
+
+.selected .emoticon {
+    background-color: #F3D24F;
+}
+
+.emoticon {
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #1D2038;
+}
+li {
+    margin-bottom: 20px;
+
 }

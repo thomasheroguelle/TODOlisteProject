@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
-import { ITodo } from 'src/ITodo/ITodo';
+import { IEmoticones, ITodo } from 'src/ITodo/ITodo';
 import { Router } from '@angular/router';
 
 
@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-task.component.css']
 })
 export class CreateTaskComponent {
+
+  selectedEmoticon: string = '';
+
 
   task: ITodo = {
     id: 0,
@@ -23,9 +26,45 @@ export class CreateTaskComponent {
 
   // appelle la méthode createTask() du service TaskService pour ajouter la tâche au local storage.
   createTask() {
+    this.task.category = this.selectedEmoticon;
     this.taskService.createTask(this.task);
     this.route.navigate(['/']);
   }
+
+  imgContent: IEmoticones[] = [
+    {
+      content : "shopping",
+      img: "🛍️",
+    },
+    {
+      content : "health",
+      img: "💊",
+    },
+    {
+      content : "work",
+      img: "💼",
+    },
+    {
+      content : "bills",
+      img: "💸",
+    },
+    {
+      content : "cleaning",
+      img: "🧼",
+    },
+    {
+      content : "other",
+      img: "🤷",
+    },
+  ]
+
+  getEmoticon(category: string): string {
+    const emoticone = this.imgContent.find((item) => item.content === category);
+    return emoticone ? emoticone.img : '';
+  }
+  
+
+
 
 
 }
