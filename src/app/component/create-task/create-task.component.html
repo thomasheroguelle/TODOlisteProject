@@ -1,21 +1,19 @@
 <main>
     <div class="styleCSS">
-        <p class="category-selection"> Séléctionnez votre catégorie : </p>
-        <ul class="category">
-            <li *ngFor="let emoticones of imgContent">
-                <label [ngClass]="{'selected': emoticones.img === selectedEmoticon}">
-                    <!-- = si l'émoticones.img est séléctionné alors .selected s'applique -->
-                    <input type="radio" name="category" [(ngModel)]="selectedEmoticon" [value]="emoticones.img">
-                    <span class="emoticon">{{emoticones.img}}</span>
-                </label>
-            </li>
-        </ul>
-
-        <p class="title-category"> Quelle tâche avez vous a effectuer ? </p>
-        <br>
-
+       
         <form class="form-body" #form="ngForm" (ngSubmit)="createTask()">
+            <p class="category-selection"> Séléctionnez votre catégorie : </p>
+            <ul class="category">
+                <li *ngFor="let category of categoryList">
+                    <label [ngClass]="{'selected': category === task.category}">
+                        <!-- = si l'émoticones est séléctionné alors .selected s'applique -->
+                        <input type="radio" name="category" [(ngModel)]="task.category" [value]="category">
+                        <span class="emoticon">{{category}}</span>
+                    </label>
+                </li>
+            </ul>
             <!-- form est associé à un nom de référence (#form="ngForm") qui permet de référencer le formulaire  -->
+            <p class="title-category"> Quelle tâche avez vous a effectuer ? </p>
             <textarea [(ngModel)]="task.content" required placeholder="Exemple : Faire les courses" name="content"
                 class="form-control" ngDefaultControl>
             </textarea>

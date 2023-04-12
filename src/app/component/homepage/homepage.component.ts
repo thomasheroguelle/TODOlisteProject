@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
-import { ITodo, IEmoticones } from 'src/ITodo/ITodo';
+import { ITodo } from 'src/ITodo/ITodo';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -20,7 +20,6 @@ export class HomepageComponent {
     const todoTasks = this.taskService.findTodoTasks();
     this.urgentTasks = todoTasks.filter(task => task.isUrgent);
     this.nonUrgentTasks = todoTasks.filter(task => !task.isUrgent);
-
   }
 
   onTaskChecked(task: ITodo) {
@@ -32,9 +31,6 @@ export class HomepageComponent {
     // Supprime la tâche en fonction de son index 
     todoTasks.splice(index, 1);
   }
-
-
-  
 }
 
 
