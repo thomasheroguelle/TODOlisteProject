@@ -12,6 +12,7 @@ import { HeaderComponent } from './component/header/header.component';
 import { HistoriqueComponent } from './component/historique/historique.component';
 
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { UpdatetaskComponent } from './component/updatetask/updatetask.component';
 
 
 
@@ -23,6 +24,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     CreateTaskComponent,
     HeaderComponent,
     HistoriqueComponent,
+    UpdatetaskComponent,
   ],
   imports: [
     BrowserModule,

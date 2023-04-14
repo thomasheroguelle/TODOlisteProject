@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 import { ITodo } from 'src/ITodo/ITodo';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -16,10 +17,11 @@ export class HomepageComponent {
   urgentTasks: ITodo[] = [];
   nonUrgentTasks: ITodo[] = [];
 
-  constructor(private taskService: TaskService) {
+  constructor(private taskService: TaskService, private route: Router) {
     const todoTasks = this.taskService.findTodoTasks();
     this.urgentTasks = todoTasks.filter(task => task.isUrgent);
     this.nonUrgentTasks = todoTasks.filter(task => !task.isUrgent);
+    
   }
 
   onTaskChecked(task: ITodo) {
@@ -31,6 +33,10 @@ export class HomepageComponent {
     // Supprime la tâche en fonction de son index 
     todoTasks.splice(index, 1);
   }
+
+
+ 
+
 }
 
 

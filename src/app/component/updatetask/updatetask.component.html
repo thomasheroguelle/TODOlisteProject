@@ -1,7 +1,8 @@
 <section>
+
     <div class="margin-left">
-       
-        <form class="form-body" #form="ngForm" (ngSubmit)="createTask()">
+
+        <form class="form-body" #form="ngForm" (ngSubmit)="updateTask(task)">
             <p class="category-selection"> Séléctionnez votre catégorie : </p>
             <ul class="category">
                 <!--
@@ -15,11 +16,12 @@
                     </label>
                 </li>
             </ul>
-            <!-- TEXTAREA  -->
             <p class="title-category"> Quelle tâche avez vous a effectuer ? </p>
-            <textarea [(ngModel)]="task.content" required placeholder="Exemple : Faire les courses" name="content"
-                class="form-control" ngDefaultControl>
-            </textarea>
+            <textarea [(ngModel)]="task.content" name="content-task-updated">
+    <li *ngFor="let update of task">
+        {{task.content}}
+    </li>
+  </textarea>
             <div class="labelDiv">
 
                 <label class="checkbox">
@@ -29,8 +31,8 @@
                 </label>
             </div>
 
-            <button class="flex" [ngClass]="{'disabled-btn': !task.content}" [disabled]="!task.content"> Valider ma
+            <button class="flex" [ngClass]="{'disabled-btn': !task.content}" [disabled]="!task.content"> Modifier ma
                 tâche</button>
         </form>
-    </div>
+        </div>
 </section>

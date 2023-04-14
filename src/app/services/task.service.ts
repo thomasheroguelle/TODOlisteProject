@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { throwError } from 'rxjs';
 import { ITodo } from 'src/ITodo/ITodo';
 
 @Injectable({
@@ -8,7 +9,7 @@ export class TaskService {
 
   private static readonly TASKS_KEY = 'tasks'
 
-  // nous retourne les taches 
+  // LS création 
   findTasks(): ITodo[] {
     // je recupere les données grace a la clé task
     const taskList = localStorage.getItem(TaskService.TASKS_KEY);
@@ -22,11 +23,24 @@ export class TaskService {
     }
   }
 
+  // updateTask
+  findTask(taskId: number): ITodo {
+    const taskList: ITodo[] = this.findTasks();
+    // for (let task of taskList) {
+    //   if (taskId == task.id) {
+    //     return task
+    //   }
+    // }
+    const filteredTask: ITodo[] = taskList.filter(task => task.id == taskId)
+    return filteredTask[0]
+
+  }
+
   // création du LocalStorage 
   createTask(task: ITodo) {
     // je recupere les données 
     const taskList: ITodo[] = this.findTasks();
-    task.id = taskList.length;
+    task.id =  taskList[taskList.length - 1].id + 1;
     // j'ajoute ma nouvelle donnée vers le LS
     taskList.push(task);
     // j'enregistre les tâches mises à jour dans le localStorage
@@ -98,12 +112,23 @@ export class TaskService {
     localStorage.setItem(TaskService.TASKS_KEY, tasksInStringify);
   }
 
-  // findUrgentTasks(): ITodo[] {
-  //   const taskList: ITodo[] = this.findTasks();
-  //   return taskList.filter(task => task.isUrgent);
-  // }
-
+  updateTask(task: ITodo) {
+    // je recupere les taches 
+    const taskList: ITodo[] = this.findTasks();
+    const taskIndex = taskList.findIndex(item => item.id === task.id);
+    // si l'index de la tache n'est pas égal a -1
+    if (taskIndex !== -1) {
+      // je remplace la tâche existante par la nouvelle tâche
+      taskList[taskIndex] = task;
+      // enregistre et met a jour la tache 
+      this.saveTasksToLocalStorage(taskList);
+    }
+    else {
+      throw new Error("task to update not found");
+    }
+  }
 }
+
 
 
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 import { ITodo } from 'src/ITodo/ITodo';
 import { Router } from '@angular/router';
-import { CATEGORY, IEmoticones } from 'src/ITodo/ITodo';
+import { CATEGORY } from 'src/ITodo/ITodo';
 
 
 @Component({
@@ -29,7 +29,6 @@ export class CreateTaskComponent {
     this.taskService.createTask(this.task);
     this.route.navigate(['/']);
   }
-
 }
 
 

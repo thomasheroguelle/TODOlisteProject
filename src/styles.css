@@ -8,6 +8,17 @@
       box-sizing: border-box;
   }
 
+  app-root {
+    max-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main {
+      flex: 1;
+      overflow: scroll;
+  }
   body {
       display: flex;
       flex-direction: column;
@@ -16,12 +27,7 @@
       background-color: #040722;
   }
 
-  main {
-      flex: 1;
-      overflow: scroll;
-      height: 100vh;
-  }
- 
+
 
   /* Balises  */
   h1,
@@ -30,11 +36,12 @@
       font-size: 20px;
       font-weight: 700;
   }
+
   p {
-    color: white;
-    font-weight: 700;
-    margin-bottom: 28px;
-}
+      color: white;
+      font-weight: 700;
+      margin-bottom: 28px;
+  }
 
   li {
       color: white;
@@ -52,10 +59,14 @@
       border: none;
       display: block;
       margin: auto;
-      bottom: 0;
   }
 
- 
+  ::-webkit-scrollbar {
+      width: 5px;
+      border-radius: 5px;
+      background: #f3d24f;
+
+  }
 
 
-
+  

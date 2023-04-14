@@ -37,3 +37,11 @@ h3 {
 .display-none {
     display: none;
 }
+/* PEN  */
+.fa-solid {
+    opacity: 50%;
+    margin-left: 25px;
+}
+.fa-solid:hover {
+    opacity: 100%;
+}
