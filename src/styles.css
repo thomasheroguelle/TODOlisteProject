@@ -1,1 +1,79 @@
-/* You can add global styles to this file, and also import other style files */
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+  * {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  app-root {
+    max-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main {
+      flex: 1;
+      overflow: scroll;
+  }
+  body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      max-height: 100vh;
+      background-color: #040722;
+  }
+
+
+
+  /* Balises  */
+  h1,
+  h2 {
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+  }
+
+  p {
+      color: white;
+      font-weight: 700;
+      margin-bottom: 28px;
+  }
+
+  li {
+      color: white;
+      list-style-type: none;
+  }
+
+  button {
+      background-color: #64A7D9;
+      color: white;
+      border-radius: 15px;
+      padding: 10px;
+      width: 248px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      display: block;
+      margin: auto;
+  }
+
+  ::-webkit-scrollbar {
+      width: 5px;
+      overflow-x: hidden;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #f3d24f;
+    border-radius: 10px;
+  }
+
+  main {
+    overflow-x: hidden;
+
+  }
+
+
+  

@@ -1,0 +1,47 @@
+/* GENERAL  */
+p {
+    margin: 10px 25px;
+}
+
+/* if NO TASK  */
+h3 {
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.centeredContainerForNoTasks {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 200px;
+}
+
+/* checkbox  */
+.checkbox-round {
+    width: 23px;
+    height: 23px;
+    background-color: #040722;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2px solid white;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    margin: 10px 23px;
+}
+
+.display-none {
+    display: none;
+}
+/* PEN  */
+.fa-solid {
+    opacity: 50%;
+    margin-left: 25px;
+}
+.fa-solid:hover {
+    opacity: 100%;
+}

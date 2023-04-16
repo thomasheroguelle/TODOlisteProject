@@ -1,0 +1,42 @@
+.container {
+    height: 100px;
+    border-top: 1px solid white;
+}
+.btnBox {
+    display: flex;
+    justify-content: center;
+    margin-top: 17px;
+}
+button {
+    width: 66px;
+    height: 66px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    margin: 0 15px;
+}
+
+/* CSS conditionnel  */
+.yellow-button {
+    background-color: #F3D24F;
+}
+
+.neutral-button {
+    background-color: #1D2038;
+}
+
+.pink-button {
+    background-color: #E475F1;
+}
+
+.green-button {
+    background-color: #88E7A1;
+}
+
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

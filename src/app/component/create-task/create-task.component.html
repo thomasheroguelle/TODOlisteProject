@@ -1,0 +1,36 @@
+<section>
+    <div class="margin-left">
+       
+        <form class="form-body" #form="ngForm" (ngSubmit)="createTask()">
+            <p class="category-selection"> Séléctionnez votre catégorie : </p>
+            <ul class="category">
+                <!--
+                    EMOTICONES
+                     categoryList = appel au mock  -->
+                <li *ngFor="let category of categoryList">
+                    <label [ngClass]="{'selected': category === task.category}">
+                        <!-- = si l'émoticones est séléctionné alors .selected s'applique -->
+                        <input type="radio" name="category" [(ngModel)]="task.category" [value]="category">
+                        <span class="emoticon">{{category}}</span>
+                    </label>
+                </li>
+            </ul>
+            <!-- TEXTAREA  -->
+            <p class="title-category"> Quelle tâche avez vous a effectuer ? </p>
+            <textarea [(ngModel)]="task.content" required placeholder="Exemple : Faire les courses" name="content"
+                class="form-control" ngDefaultControl>
+            </textarea>
+            <div class="labelDiv">
+
+                <label class="checkbox">
+                    <input [(ngModel)]="task.isUrgent" type="checkbox" name="urgent" value="urgent">
+                    <span class="checkmark"> </span>
+                    La tache est urgente ⚠️
+                </label>
+            </div>
+
+            <button class="flex" [ngClass]="{'disabled-btn': !task.content}" [disabled]="!task.content"> Valider ma
+                tâche</button>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+<footer>
+    <hr>
+    <div class="container">
+        <div class="btnBox">
+            <button routerLink="/" [ngClass]="{'green-button' : isOnHomePage, 'neutral-button' : !isOnHomePage}"
+                class="blue">
+                <i class="fa-solid fa-list"></i>
+            </button>
+
+            <button routerLink="/createTask"
+                [ngClass]="{'yellow-button' : isOnCreateTask || isOnUpdateTaskPage, 'neutral-button' : !isOnCreateTask}">
+                +
+            </button>
+
+            <button routerLink="/historique"
+                [ngClass]="{'pink-button' : isOnHistoriquePage, 'neutral-button' : !isOnHistoriquePage}">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+            </button>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,29 @@
+<ng-container *ngIf="tasks.length > 0; else noTask" class="containerNgIf">
+
+    <div class="centrer">
+
+        <p class="title-category">Historique des tâches : </p>
+
+        <ul>
+            <li *ngFor="let task of tasks">
+                <input type="checkbox" class="checkbox-round with-image" (change)="setTaskUndone(task)">
+                <span class="checkmark"></span>
+
+                {{task.category}} {{task.content}}
+            </li>
+        </ul>
+    </div>
+</ng-container>
+
+
+<ng-template #noTask>
+    <div class="centeredContainerForNoTasks">
+        <h2>
+            Votre historique est vide 😁
+        </h2>
+        <br>
+        <button routerLink="/createTask">
+            Créer une tâche
+        </button>
+    </div>
+</ng-template>

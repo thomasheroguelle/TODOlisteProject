@@ -1,0 +1,48 @@
+<ng-container *ngIf="(nonUrgentTasks.length + urgentTasks.length) > 0 ; else noTask" class="containerNgIf">
+
+    <div class="centrer">
+
+        <!-- taches urgentes  -->
+        <div class="urgentTasks">
+            <p class="urgent-tasks" *ngIf="urgentTasks.length"> ⚠️ Tâches
+                urgentes</p>
+            <ul>
+                <li *ngFor="let task of urgentTasks ">
+                    <input type="checkbox" class="checkbox-round" name="task-{{task.id}}" id="task-{{task.id}}"
+                        (change)="onTaskChecked(task)">
+                    <label [routerLink]="['updatetask' , task.id]" for="task-{{task.id}}">
+                        {{task.category}} {{ task.content }}
+                    </label>
+                </li>
+            </ul>
+        </div>
+
+        <!-- taches non urgentes  -->
+        <div class="non-urgentTasks">
+
+            <p class="non-urgent-tasks" *ngIf="nonUrgentTasks.length"> 🌸
+                Tâches non urgentes</p>
+            <ul>
+                <li  *ngFor="let task of nonUrgentTasks ">
+                    <input type="checkbox" class="checkbox-round" name="task-{{task.id}}" id="task-{{task.id}}"
+                        (change)="onTaskChecked(task)">
+                    <label [routerLink]="['updatetask' , task.id]" for="task-{{task.id}}">
+                        {{task.category}} {{ task.content }}
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</ng-container>
+
+<ng-template #noTask>
+    <div class="centeredContainerForNoTasks">
+        <h3>
+            Aucune tache pour le moment 🙌
+        </h3>
+        <button routerLink="/createTask">
+            Créer une tâche
+        </button>
+    </div>
+</ng-template>
