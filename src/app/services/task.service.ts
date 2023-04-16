@@ -22,6 +22,24 @@ export class TaskService {
       return [];
     }
   }
+  
+  // création du LocalStorage 
+  createTask(task: ITodo) {
+    // je recupere les données 
+    const taskList: ITodo[] = this.findTasks();
+    task.id = taskList[taskList.length - 1].id + 1;
+    // j'ajoute ma nouvelle donnée vers le LS
+    taskList.push(task);
+    // j'enregistre les tâches mises à jour dans le localStorage
+    this.saveTasksToLocalStorage(taskList);
+  }
+
+  saveTasksToLocalStorage(tasks: ITodo[]) {
+    // je transforme taskList en chaine de caractere comme dans la methode ci dessus 
+    const tasksInStringify = JSON.stringify(tasks);
+    // je sauvegarde cette chaine de caractere grace a la clé
+    localStorage.setItem(TaskService.TASKS_KEY, tasksInStringify);
+  }
 
   // updateTask
   findTask(taskId: number): ITodo {
@@ -33,18 +51,6 @@ export class TaskService {
     // }
     const filteredTask: ITodo[] = taskList.filter(task => task.id == taskId)
     return filteredTask[0]
-
-  }
-
-  // création du LocalStorage 
-  createTask(task: ITodo) {
-    // je recupere les données 
-    const taskList: ITodo[] = this.findTasks();
-    task.id =  taskList[taskList.length - 1].id + 1;
-    // j'ajoute ma nouvelle donnée vers le LS
-    taskList.push(task);
-    // j'enregistre les tâches mises à jour dans le localStorage
-    this.saveTasksToLocalStorage(taskList);
   }
 
   findTodoTasks(): ITodo[] {
@@ -80,7 +86,6 @@ export class TaskService {
       return 0
     });
     return sortedTasks
-
   }
 
   setTaskDone(taskId: number) {
@@ -103,13 +108,6 @@ export class TaskService {
       taskList[index].doneDate = null;
       this.saveTasksToLocalStorage(taskList);
     }
-  }
-
-  saveTasksToLocalStorage(tasks: ITodo[]) {
-    // je transforme taskList en chaine de caractere comme dans la methode ci dessus 
-    const tasksInStringify = JSON.stringify(tasks);
-    // je sauvegarde cette chaine de caractere grace a la clé
-    localStorage.setItem(TaskService.TASKS_KEY, tasksInStringify);
   }
 
   updateTask(task: ITodo) {

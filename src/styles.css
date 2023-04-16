@@ -63,8 +63,15 @@
 
   ::-webkit-scrollbar {
       width: 5px;
-      border-radius: 5px;
-      background: #f3d24f;
+      overflow-x: hidden;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #f3d24f;
+    border-radius: 10px;
+  }
+
+  main {
+    overflow-x: hidden;
 
   }
 
