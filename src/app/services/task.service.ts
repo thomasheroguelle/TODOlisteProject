@@ -27,7 +27,7 @@ export class TaskService {
   createTask(task: ITodo) {
     // je recupere les données 
     const taskList: ITodo[] = this.findTasks();
-    task.id = taskList[taskList.length - 1].id + 1;
+    task.id = (taskList.length > 0) ? taskList[taskList.length - 1].id + 1 : 0;
     // j'ajoute ma nouvelle donnée vers le LS
     taskList.push(task);
     // j'enregistre les tâches mises à jour dans le localStorage
